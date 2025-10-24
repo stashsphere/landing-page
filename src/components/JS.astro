@@ -1,0 +1,23 @@
+<script is:inline>
+  function navToggle() {
+    let btn = document.getElementById('menuBtn')
+    let nav = document.getElementById('menu')
+
+    btn.classList.toggle('open')
+    nav.classList.toggle('flex')
+    nav.classList.toggle('hidden')
+  }
+
+  window.addEventListener('scroll', function () {
+    let btt = document.getElementById('btt')
+
+    if (window.scrollY >= 1080) {
+      btt.classList.remove('hidden')
+      btt.classList.add('block')
+    } else {
+      btt.classList.add('hidden')
+      btt.classList.remove('block')
+    }
+  })
+
+</script>

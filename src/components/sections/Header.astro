@@ -1,0 +1,182 @@
+---
+import Navbar from "../Navbar.astro";
+import { Icon } from "astro-icon/components";
+
+const headerListItems = [
+  "organized in lists",
+  "private",
+  "shared with a friend",
+  "shared with friends",
+  "shared with their friends",
+  "free",
+  "open source",
+];
+const site = Astro.site;
+---
+
+<script>
+  import "../particles.js";
+
+  const config = {
+    particles: {
+      number: {
+        value: 40,
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+      color: {
+        value: "#001427",
+      },
+      shape: {
+        type: "circle",
+        stroke: {
+          width: 0,
+          color: "#001427",
+        },
+        polygon: {
+          nb_sides: 5,
+        },
+      },
+      opacity: {
+        value: 0.5,
+        random: false,
+        anim: {
+          enable: false,
+          speed: 1,
+          opacity_min: 0.1,
+          sync: false,
+        },
+      },
+      size: {
+        value: 3,
+        random: true,
+        anim: {
+          enable: false,
+          speed: 40,
+          size_min: 0.1,
+          sync: false,
+        },
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#000000",
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        random: false,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+        attract: {
+          enable: false,
+          rotateX: 600,
+          rotateY: 1200,
+        },
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: {
+          enable: true,
+          mode: "repulse",
+        },
+        onclick: {
+          enable: true,
+          mode: "push",
+        },
+        resize: true,
+      },
+      modes: {
+        grab: {
+          distance: 400,
+          line_linked: {
+            opacity: 1,
+          },
+        },
+        bubble: {
+          distance: 400,
+          size: 40,
+          duration: 2,
+          opacity: 8,
+          speed: 3,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+        },
+        push: {
+          particles_nb: 4,
+        },
+        remove: {
+          particles_nb: 2,
+        },
+      },
+    },
+    retina_detect: true,
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    window.particlesJS("particles", config, function () {
+      console.log("callback - particles.js config loaded");
+    });
+
+    const button = document.getElementById("stop-animation-button");
+
+    button.addEventListener("click", (event) => {
+      window.pJSDom[0].pJS.fn.vendors.destroypJS();
+      window["pJSDom"] = [];
+      button.remove();
+    });
+  });
+
+</script>
+
+<header class="header w-full min-h-screen flex flex-col justify-between">
+  <div id="particles" class="absolute inset-0 -z-10 bg-secondary"></div>
+  <button id="stop-animation-button" class="absolute right-10 bottom-10 flex flex-row"
+    ><Icon name="material-symbols:pause" class="h-5 w-6" />Stop Animation</button
+  >
+  <Navbar />
+  <div class="flex flex-col justify-center h-full py-12">
+    <div
+      class="self-center items-center flex flex-col sm:flex-row w-full md:w-5/6 xl:w-2/3 px-4 sm:px-0"
+    >
+      <div class="w-full text-center sm:text-left sm:w-1/2 py-12 sm:px-8">
+        <h1 class="tracking-wide text-primary text-2xl mb-6">
+          StashSphere: <span
+            class="text-gray-800 font-bold tracking tracking-widest"
+            >Social Inventory</span
+          >
+        </h1>
+        <h2 class="font-bold tracking-widest text-4xl">Your things...</h2>
+        <span
+          class="content__container block font-light text-browngray text-2xl my-6"
+        >
+          <ul class="content__container__list">
+            {
+              headerListItems.map((item) => (
+                <li class="content__container__list__item xl:pl-3">{item}</li>
+              ))
+            }
+          </ul>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-row w-full justify-center pb-12">
+    <a
+      class="px-10 py-2 text-gray-200 bg-accent rounded-full shadow-md text-lg hover:bg-gray-800 hover:border-accent-300"
+      href="#about"
+    >
+      More Information
+    </a>
+  </div>
+</header>

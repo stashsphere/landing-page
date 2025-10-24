@@ -1,0 +1,51 @@
+---
+import siteData from '../data/site.json'
+import { Icon } from 'astro-icon/components'
+
+const pn = Astro.url.pathname
+const isHome = pn === '/'
+const site = Astro.site
+const abtLink = isHome
+  ? '#about'
+  : `${site}#about`
+const ftLink = isHome
+  ? '#features'
+  : `${site}#features`
+---
+<footer class="w-full flex flex-col sm:flex-row sm:justify-center text-lg tracking-wide px-4 sm:px-0 py-16">
+  <div class="h-px sm:h-auto w-1/2 sm:w-px bg-accent mx-auto sm:mx-0"></div>
+  <div class="text-center px-8 py-4">
+    <ul class="list-none">
+      <li>
+        <a class="text-gray-800 hover:text-accent no-underline" href={abtLink}>About</a>
+      </li>
+      <li>
+        <a class="text-gray-800 hover:text-accent no-underline" href={ftLink}>Features</a>
+      </li>
+    </ul>
+  </div>
+  <div class="h-px sm:h-auto w-1/2 sm:w-px bg-accent mx-auto sm:mx-0"></div>
+  <div class="text-center pl-0 sm:pl-8 py-4">
+    <ul class="list-none">
+      <li>
+        <a class="text-gray-800 hover:text-accent no-underline" href={`${site}privacy`}>Privacy</a>
+      </li>
+      <li>
+        <a class="text-gray-800 hover:text-accent no-underline" href={`${site}imprint`}>Imprint</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+<div class="w-full flex justify-center">
+  <span class="text-gray-800 text-sm font-light flex flex-row mb-2">
+    &copy; 2025 - {siteData.author}
+  </span>
+</div>
+<div class="">
+  <a id="btt" class="hidden fixed bottom-0 right-0 mb-4 mr-4 text-white border border-accent-600 hover:bg-white hover:text-accent hover:border-accent no-underline px-6 py-1 bg-accent shadow-md" href="#top" title="Back to Top">UP</a>
+</div>
+<div class="fixed bottom-0 left-0 m-6">
+  <a href="https://github.com/stashsphere" target="_blank" rel="noopener" title="StashSphere @ GitHub" class="block rounded-full bg-black text-accent hover:bg-white hover:text-black shadow-md p-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><path fill="currentColor" d="M15.698 7.287L8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45l1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025a1.226 1.226 0 0 1-2.001-1.334L8.579 5.963v4.353q.177.085.324.231a1.226 1.226 0 1 1-1.332-.267V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.03 1.03 0 0 0 0-1.458"/></svg>
+  </a>
+</div>

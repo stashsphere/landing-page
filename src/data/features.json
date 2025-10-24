@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Inventory System",
+    "icon": "undraw_online-organizer_1kdy.svg",
+    "content": "Add your things and organize them in lists."
+  },
+  {
+    "title": "Visual",
+    "icon": "undraw_image-folder_ep25.svg",
+    "content": "Upload pictures of your things. Find things even when you do not know their name."
+  },
+  {
+    "title": "Social",
+    "icon": "undraw_online-community_3o0l.svg",
+    "content": "Send friend requests to your friends. Share your things with them or even with their friends!"
+  },
+  {
+    "title": "Free and Open Source. Ready to self host",
+    "icon": "undraw_waiting-for-you_xhp2.svg",
+    "content": "Your things, your data. Run your own instance for you and your friends."
+  },
+  {
+    "title": "Notifications",
+    "icon": "undraw_my-notifications_fy5v.svg",
+    "content": "Get notifications about friend requests, new things and shares."
+  },
+  {
+    "title": "Searchable",
+    "icon": "undraw_file-searching_2ne8.svg",
+    "content": "Full text search of your things and the things that are shared with you."
+  }
+]

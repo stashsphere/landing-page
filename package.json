@@ -1,0 +1,31 @@
+{
+  "name": "landing-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_ENV=dev astro dev",
+    "start": "NODE_ENV=dev astro dev",
+    "build": "NODE_ENV=production astro build",
+    "build-ghp": "NODE_ENV=pages astro build && cp .nojekyll ./docs",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "Maximilian Güntner / @mguentner",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "@tailwindcss/vite": "^4.1.16",
+    "astro": "^4.0.2",
+    "particles.js": "^2.0.0",
+    "tailwindcss": "^4.1.0",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@iconify-json/circle-flags": "^1.2.10",
+    "@iconify-json/material-symbols": "^1.2.42",
+    "@iconify-json/octicon": "^1.2.16",
+    "astro-icon": "^1.1.5"
+  }
+}

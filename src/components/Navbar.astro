@@ -1,0 +1,38 @@
+---
+import siteData from '../data/site.json'
+
+const pn = Astro.url.pathname
+const isHome = pn === '/'
+const site = Astro.site
+const abtLink = isHome
+  ? '#about'
+  : `${site}#about`
+const ftLink = isHome
+  ? '#features'
+  : `${site}#features`
+const getStartedLink = isHome
+  ? '#getstarted'
+  : `${site}#getstarted`
+---
+<nav class="flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 bg-white sm:bg-transparent shadow sm:shadow-none">
+  <div class="w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center">
+    <a href={Astro.site} class="no-underline">
+    <div class="flex">
+      <div class="flex items-center">
+        <img src={`${site}/img/stashsphere-logo.svg`} alt="StashSphere" class="h-12" />
+      </div>
+      <span class="py-4 px-2 text-primary font-goldman font-bold text-xl">stashsphere</span>
+    </div>
+    </a>
+    <button id="menuBtn" class="hamburger block sm:hidden focus:outline-none" type="button" onclick="navToggle();" aria-label="Show Menu">
+      <span class="hamburger__top-bun"></span>
+      <span class="hamburger__bottom-bun"></span>
+    </button>
+  </div>
+  <div id="menu" class="w-full sm:w-auto self-end sm:self-center hidden sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0">
+    <a class="text-gray-800 font-bold hover:text-accent text-lg text-center w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1" href={abtLink}>About</a>
+    <a class="text-gray-800 font-bold hover:text-accent text-lg text-center w-full no-underline sm:w-auto sm:px-4 py-2 sm:py-1" href={ftLink}>Features</a>
+    <a class="text-gray-800 font-bold hover:text-accent text-lg text-center w-full no-underline sm:w-auto sm:px-4 py-2 sm:py-1" href={getStartedLink}>Get Started</a>
+    <a class="text-gray-800 font-bold hover:text-accent text-lg text-center w-full no-underline sm:w-auto sm:px-4 py-2 sm:py-1" href="https://docs.stashsphere.com"} target="_blank">Documentation</a>
+  </div>
+</nav>
