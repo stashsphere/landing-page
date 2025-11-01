@@ -10,7 +10,7 @@ import '../styles/normalize.css'
 const {frontmatter} = Astro.props
 ---
 <html lang={siteData.language}>
-  <Head image={frontmatter.image || undefined} title={`${frontmatter.title} | ${siteData.author}`} />
+  <Head image={frontmatter.image || undefined} title={`${siteData.title} | ${frontmatter.title}`} />
   <body>
     <Navbar />
     <main id={frontmatter.title} class="w-full flex flex-col justify-center items-center">
