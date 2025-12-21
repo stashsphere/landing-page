@@ -15,7 +15,7 @@ stdenv.mkDerivation (finalAttrs: {
     pnpm.configHook
   ];
 
-  pnpmDepsHash = "sha256-wH+ut9nefCSJS6Ae6e9Ig6jEpYreKOzTv93WY5icwxQ=";
+  pnpmDepsHash = "sha256-rq63uJypWq2LqGjtk97hYoObLxIslNtsEoYv3bg6d3A=";
 
   pnpmDeps = pnpm.fetchDeps {
     inherit (finalAttrs) pname version src;
