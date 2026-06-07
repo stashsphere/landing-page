@@ -1,8 +1,8 @@
-{ stdenv
-, nodejs
-, pnpm
-, version
-, writeText
+{
+  stdenv,
+  nodejs,
+  pnpm,
+  version,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "stashsphere-landingpage";
@@ -15,19 +15,19 @@ stdenv.mkDerivation (finalAttrs: {
     pnpm.configHook
   ];
 
-  pnpmDepsHash = "sha256-rq63uJypWq2LqGjtk97hYoObLxIslNtsEoYv3bg6d3A=";
+  pnpmDepsHash = "sha256-QyIQEtBSlRKrfh4aY3SvgrbjacQGlzkeBmhcGIkNFno=";
 
   pnpmDeps = pnpm.fetchDeps {
     inherit (finalAttrs) pname version src;
-    fetcherVersion = 2;
+    fetcherVersion = 3;
     hash = finalAttrs.pnpmDepsHash;
   };
 
   buildPhase = ''
     runHook preBuild
-    
+
     pnpm build
-    
+
     runHook postBuild
   '';
 
