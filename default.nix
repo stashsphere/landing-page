@@ -3,6 +3,8 @@
   nodejs,
   pnpm,
   version,
+  fetchPnpmDeps,
+  pnpmConfigHook,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "stashsphere-landingpage";
@@ -12,14 +14,15 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [
     nodejs
-    pnpm.configHook
+    pnpmConfigHook
+    pnpm
   ];
 
-  pnpmDepsHash = "sha256-QyIQEtBSlRKrfh4aY3SvgrbjacQGlzkeBmhcGIkNFno=";
+  pnpmDepsHash = "sha256-677LSM1JQpbPIQR5+V21K8vz+Fw4w2RgVt0iuFJvasc=";
 
-  pnpmDeps = pnpm.fetchDeps {
+  pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
-    fetcherVersion = 3;
+    fetcherVersion = 4;
     hash = finalAttrs.pnpmDepsHash;
   };
 
